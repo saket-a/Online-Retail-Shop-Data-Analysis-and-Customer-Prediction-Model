@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quantity Predictor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="mx-auto w-50">
+    <form action="{{ url_for('predict')}}" method="post">
+        <div class="form-outline col-md-4 col-lg-offset-4">
+            <label for="inv_no" class="form-label">Invoice No</label>
+            <input type="text" class="form-control" id="inv_no">
+        </div>
+        <div class="form-outline col-md-4 col-lg-offset-4">
+            <label for="stock" class="form-label">Stock Code</label>
+            <input type="text" class="form-control" id="stock">
+        </div>
+        <div class="form-outline col-md-4 col-lg-offset-4">
+            <label for="desc" class="form-label">Description</label>
+            <input type="text" class="form-control" id="desc">
+        </div>
+        <div class="form-outline col-md-4 col-lg-offset-4">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="text" class="form-control" id="quantity" name="quantity" required>
+        </div>
+        <div class="form-outline col-md-4 col-lg-offset-4">
+            <label for="date" class="form-label">Invoice Date</label>
+            <input type="text" class="form-control" id="date">
+        </div>
+        <div class="form-outline col-md-4 col-lg-offset-4">
+            <label for="price" class="form-label">Unit Price</label>
+            <input type="text" class="form-control" id="price" name="price" required>
+        </div>
+        <div class="form-outline col-md-4 col-lg-offset-4">
+            <label for="custID" class="form-label">Customer ID</label>
+            <input type="text" class="form-control" id="custID" name="custID" required>
+        </div>
+        <div class="form-outline col-md-4 col-lg-offset-4">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" class="form-control" id="country">
+        </div>
+        <br>
+        <br>
+        <div class="col-md-4 col-lg-offset-4">
+            <button class="btn btn btn-primary btn-block" type="submit">Predict</button>
+        </div>
+    </form>
+    </div>
+    
+    <div class="col-md-4 col-lg-offset-4">
+        <p class="text-center" style="font-size:160%;"><strong>{{ prediction_text }}</strong></p>
+    </div>
+</body>
+</html>
